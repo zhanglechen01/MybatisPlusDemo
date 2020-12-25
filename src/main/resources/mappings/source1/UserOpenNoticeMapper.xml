@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.yitao.notice.dao.source1.UserOpenNoticeMapper">
+
+    <insert id="insert" parameterType="String" >
+        insert into t_user_opennotice(unick,open_notice_time)
+        values
+            (#{unick},CURRENT_TIMESTAMP)
+         ON DUPLICATE KEY UPDATE
+             unick = unick,open_notice_time = CURRENT_TIMESTAMP
+    </insert>
+
+    <select id="getOpenTimeByName" parameterType="string" resultType="date">
+        SELECT open_notice_time FROM t_user_opennotice WHERE uNick = #{uNick,jdbcType=VARCHAR}
+    </select>
+</mapper>

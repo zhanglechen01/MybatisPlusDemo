@@ -1,0 +1,55 @@
+server:
+  port: 806
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  datasource:
+    #下单用户库
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #订单数据库
+      ds1:
+        url: jdbc:mysql://123.com:3306/ytweb_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&zeroDateTimeBehavior=convertToNull
+        username: 123
+        password: 123
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,slf4j,wall
+        maxActive: 50
+        initial-size: 10
+        maxWait: 60000
+        minIdle: 10
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: false
+      stat-view-servlet:
+        enabled: true
+        login-username: druid
+        login-password: yitao2020
+
+  redis:
+    database: 0
+    host: test.123.com
+    port: 30005
+    password: 123456
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+
+
+
+app:
+  loanurl: https://www.baidu.com/
+  synDate: 7
+
+
+
+
